@@ -1,16 +1,16 @@
 $(document).ready(function() {
   
-  // test flag
+  // test flag here
   const test = false;
 
-  // get times from moment
+  // const now gets time from moment
   const now = moment().format('MMMM Do YYYY');
 
   // commented out for test in non-standard hours
   let nowHour24 = moment().format('H');
   let nowHour12 = moment().format('h');
 
-  // set times for tesitng after hours
+  // set times for testing after hours
   if (test) {
     nowHour24 = 13;
     nowHour12 = 1;
@@ -19,12 +19,11 @@ $(document).ready(function() {
   let $dateHeading = $('#navbar-subtitle');
   $dateHeading.text(now);
   
-  // using font awesome icon https://fontawesome.com/license
-  // change description here - none
+  // using font awesome icon here https://fontawesome.com/license
   const saveIcon = "./images/save-regular.svg"; 
 
   // Get stored todos from localStorage
-  // Parsing the JSON string to an object
+  // JSON string to an object with parse
   let storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
 
   if (test) { console.log(storedPlans); }
@@ -33,8 +32,6 @@ $(document).ready(function() {
   if (storedPlans !== null) {
     planTextArr = storedPlans;
   } else {
-    // this should only occur on first time the app is loaded in the browser
-    // helpfully remind user that lunch is important
     planTextArr = new Array(9);
   }
 
@@ -48,7 +45,7 @@ $(document).ready(function() {
   if (test) { console.log("current time",nowHour12); }
 
 
-  // build calendar by row for fix set of hours
+  // build calendar by row
   for (let hour = 9; hour <= 17; hour++) {
     // index for array use offset from hour
     let index = hour - 9;
@@ -59,7 +56,7 @@ $(document).ready(function() {
     $rowDiv.addClass('plannerRow');
     $rowDiv.attr('hour-index',hour);
   
-    // Start building Time box portion of row
+    // Start building time box in row
     let $col2TimeDiv = $('<div>');
     $col2TimeDiv.addClass('col-md-2');
   
@@ -117,10 +114,9 @@ $(document).ready(function() {
     $saveBtn.attr('save-id',index);
     $saveBtn.attr('class',"far fa-save saveIcon");
     
-    // add col width and row component to row
+    // adds the col width and row component to row
     $rowDiv.append($col1SaveDiv);
     $col1SaveDiv.append($saveBtn);
-    // STOP building save portion of row
 
     // set row color based on time
     updateRowColor($rowDiv, hour);
@@ -135,7 +131,6 @@ $(document).ready(function() {
     if (test) { console.log("rowColor ",nowHour24, hour); }
 
     if ( hour < nowHour24) {
-      // $hourRow.css('')
       if (test) { console.log("lessThan"); }
       $hourRow.css("background-color","lightgrey")
     } else if ( hour > nowHour24) {
@@ -148,7 +143,7 @@ $(document).ready(function() {
   };
 
   // saves to local storage
-  // conclick function to listen for user clicks on plan area
+
   $(document).on('click','i', function(event) {
     event.preventDefault();  
 
@@ -177,11 +172,9 @@ $(document).ready(function() {
     if (test) { console.log('onChange'); }
     if (test) { console.log('id', $(this).attr('hour-index')); }
 
-    // neeed to check for save button
-
     let i = $(this).attr('hour-index');
 
-    // add shawdow pulse class
+    //shadow pulse class to inform the user to click the save button
     $(`#saveid-${i}`).addClass('shadowPulse');
   });
 });
