@@ -51,4 +51,3 @@ Poor time management can result in missed meetings and deadlines or create the a
 <!-- this still needs to be applied -->
 
 Near the top of the calendar, the application should display the current day.
->>>>>>> 8132fa60ffa7dbbf10e33db64ca8893461e2e694
