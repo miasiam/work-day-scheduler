@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
 
 The app should display standard business hours (9 a.m. to 5 p.m.). Each time slot should represent one hour and contain the following:
@@ -49,3 +50,20 @@ Poor time management can result in missed meetings and deadlines or create the a
 
 * Each timeblock is color coded to indicate whether it is in a past, present, or future hour.
 <!-- this still needs to be applied -->
+=======
+Day Planner
+
+Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+
+The app should display standard business hours (9 a.m. to 5 p.m.). Each time slot should represent one hour and contain the following:
+
+* The time
+
+* A field to hold user input
+
+* A save button
+
+Clicking on the save button will store the time and user input in `localStorage`.
+
+Near the top of the calendar, the application should display the current day.
+>>>>>>> 8132fa60ffa7dbbf10e33db64ca8893461e2e694
